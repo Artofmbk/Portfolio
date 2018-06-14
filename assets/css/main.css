@@ -2042,7 +2042,7 @@
 			}
 
 				#header .icons a:hover {
-					color: #fff;
+					color: #C0C0C0;
 				}
 
 	#logo {
@@ -2593,6 +2593,29 @@
 		top: 40px;
 		font-size: 30px;
 		font-weight: 400;
+		transition: color 0.5s ease;
+	}
+
+	.close:hover {
+		background-color: transparent;
+		color: #D0D0D0;
+	}
+
+	i {
+	  border: solid white;
+	  border-width: 0 3px 3px 0;
+	  display: inline-block;
+	  padding: 14px;
+	}
+
+	.right {
+	    transform: rotate(-45deg);
+	    -webkit-transform: rotate(-45deg);
+	}
+
+	.left {
+	    transform: rotate(135deg);
+	    -webkit-transform: rotate(135deg);
 	}
 
 
