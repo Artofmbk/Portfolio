@@ -66,7 +66,7 @@
 								.addClass('scrollzer-locked');
 
 						// Set this link to active
-							t.addClass('active');
+							// t.addClass('active');
 
 					});
 
@@ -125,7 +125,6 @@
       	var title = $(this).attr("title");
       	$('.modal-title').html(title);
       	content.html($(this).html());
-				content.append('<button class="close" type="button" data-dismiss="modal">X</button>');
       	$(".modal-profile").modal({show:true});
     });
 

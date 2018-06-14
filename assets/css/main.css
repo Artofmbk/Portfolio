@@ -2574,11 +2574,26 @@
 
 	}
 
+	.modal {
+	    text-align:center;
+	}
+	.modal-dialog {
+	    display: inline-block;
+	    width: auto;
+	}
+ .modal-body > img {
+	    max-height: 100vh;
+	    margin: -20px 0;
+	    padding: 113px 0;
+	}
 
-.modal-body > img {
-	width: 100%;
-	height: auto;
-}
+	.close {
+		opacity: 1;
+		right: 70px;
+		top: 40px;
+		font-size: 30px;
+		font-weight: 400;
+	}
 
 
 	#profile-grid { overflow: auto; white-space: normal; }
