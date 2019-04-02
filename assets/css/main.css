@@ -95,6 +95,10 @@
 		height: 120px;
 	}
 
+	#mobileShow {
+		display: none;
+	}
+
 	@media screen and (min-width: 961px) and (max-width: 1880px) {
 
 		.container.\31 25\25 {
@@ -2241,6 +2245,10 @@
 				margin-left: 300px;
 			}
 
+			#mobileShow {
+				display: none;
+			}
+
 	}
 
 /* Normal */
@@ -2322,6 +2330,10 @@
 
 			#main {
 				margin-left: 20%;
+			}
+
+			#mobileShow {
+				display: none;
 			}
 
 	}
@@ -2515,6 +2527,10 @@
 					padding: 4em 0;
 				}
 
+				#mobileShow {
+					display: none;
+				}
+
 	}
 
 /* Mobile */
@@ -2570,6 +2586,10 @@
 
 				#footer .copyright li:first-child {
 					margin-top: 0;
+				}
+
+				#mobileShow {
+					display: block;
 				}
 
 	}
