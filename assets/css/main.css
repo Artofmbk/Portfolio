@@ -2581,10 +2581,17 @@
 	    display: inline-block;
 	    width: auto;
 	}
+
+	.modal-body {
+		display: flex;
+		padding: 0;
+	}
+
  .modal-body > img {
 	    max-height: 100vh;
-	    margin: -20px 0;
-	    padding: 113px 0;
+			max-width: 140vh;
+ 			padding-bottom: 50px;
+ 			object-fit: contain;
 	}
 
 	.close {
