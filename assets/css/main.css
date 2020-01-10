@@ -1667,10 +1667,20 @@
 		outline: 0;
 	}
 
+	.a-tag-design-page-icon {
+		text-decoration: none;
+		border-bottom: none
+	}
+
 		a:hover {
 			color: #E27689;
 			border-bottom-color: rgba(255, 255, 255, 0);
 		}
+
+		.ph-btn-grey:hover, .ph-btn-grey:focus, .ph-btn-grey:active {
+    color: white;
+    text-decoration: none !important;
+	}
 
 	sub {
 		position: relative;
@@ -1960,7 +1970,7 @@
 /* Item */
 
 	.item {
-		box-shadow: 0 0.05em 0.15em 0 rgba(0, 0, 0, 0.05);
+		box-shadow: none rgba(0, 0, 0, 0.05);
 		margin-bottom: 40px;
 	}
 
