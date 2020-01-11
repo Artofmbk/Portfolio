@@ -112,6 +112,8 @@
 
 	.tankWalletApp {
 		width: 50%;
+		margin-left: auto;
+		display: block;
 	}
 
 	.emmaAndChuckOutline2 {
