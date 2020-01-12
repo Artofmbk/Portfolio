@@ -5,129 +5,156 @@
 */
 
 (function($) {
+  skel.breakpoints({
+    wide: "(min-width: 961px) and (max-width: 1880px)",
+    normal: "(min-width: 961px) and (max-width: 1620px)",
+    narrow: "(min-width: 961px) and (max-width: 1320px)",
+    narrower: "(max-width: 960px)",
+    mobile: "(max-width: 736px)"
+  });
 
-	skel.breakpoints({
-		wide: '(min-width: 961px) and (max-width: 1880px)',
-		normal: '(min-width: 961px) and (max-width: 1620px)',
-		narrow: '(min-width: 961px) and (max-width: 1320px)',
-		narrower: '(max-width: 960px)',
-		mobile: '(max-width: 736px)'
-	});
+  $(function() {
+    var $window = $(window),
+      $body = $("body");
 
-	$(function() {
+    // Disable animations/transitions until the page has loaded.
+    $body.addClass("is-loading");
 
-		var	$window = $(window),
-			$body = $('body');
-
-		// Disable animations/transitions until the page has loaded.
-			$body.addClass('is-loading');
-
-			$window.on('load', function() {
-				$body.removeClass('is-loading');
-			});
-
-		// CSS polyfills (IE<9).
-			if (skel.vars.IEVersion < 9)
-				$(':last-child').addClass('last-child');
-
-		// Fix: Placeholder polyfill.
-			$('form').placeholder();
-
-		// Prioritize "important" elements on mobile.
-			skel.on('+mobile -mobile', function() {
-				$.prioritize(
-					'.important\\28 mobile\\29',
-					skel.breakpoint('mobile').active
-				);
-			});
-
-		// Scrolly links.
-			$('.scrolly').scrolly();
-
-		// Nav.
-			var $nav_a = $('#nav a');
-
-			// Scrolly-fy links.
-				$nav_a
-					.scrolly()
-					.on('click', function(e) {
-
-						var t = $(this),
-							href = t.attr('href');
-
-						if (href[0] != '#')
-							return;
-
-						e.preventDefault();
-
-						// Clear active and lock scrollzer until scrolling has stopped
-							$nav_a
-								.removeClass('active')
-								.addClass('scrollzer-locked');
-
-						// Set this link to active
-							// t.addClass('active');
-
-					});
-
-			// Initialize scrollzer.
-				var ids = [];
-
-				$nav_a.each(function() {
-
-					var href = $(this).attr('href');
-
-					if (href[0] != '#')
-						return;
-
-					ids.push(href.substring(1));
-
-				});
-
-				$.scrollzer(ids, { pad: 200, lastHack: true });
-
-		// Header (narrower + mobile).
-
-			// Toggle.
-				$(
-					'<div id="headerToggle">' +
-						'<a href="#header" class="toggle"></a>' +
-					'</div>'
-				)
-					.appendTo($body);
-
-			// Header.
-				$('#header')
-					.panel({
-						delay: 500,
-						hideOnClick: true,
-						hideOnSwipe: true,
-						resetScroll: true,
-						resetForms: true,
-						side: 'left',
-						target: $body,
-						visibleClass: 'header-visible'
-					});
-
-			// Fix: Remove transitions on WP<10 (poor/buggy performance).
-				if (skel.vars.os == 'wp' && skel.vars.osVersion < 10)
-					$('#headerToggle, #header, #main')
-						.css('transition', 'none');
-
-	});
-
-	// $(document).ready(function() {
-/* show lightbox when clicking a thumbnail */
-    $('a.thumb').click(function(event){
-    	event.preventDefault();
-    	var content = $('.modal-body');
-    	content.empty();
-      	var title = $(this).attr("title");
-      	$('.modal-title').html(title);
-      	content.html($(this).html());
-      	$(".modal-profile").modal({show:true});
+    $window.on("load", function() {
+      $body.removeClass("is-loading");
     });
 
-  // });
+    // CSS polyfills (IE<9).
+    if (skel.vars.IEVersion < 9) $(":last-child").addClass("last-child");
 
+    // Fix: Placeholder polyfill.
+    $("form").placeholder();
+
+    // Prioritize "important" elements on mobile.
+    skel.on("+mobile -mobile", function() {
+      $.prioritize(
+        ".important\\28 mobile\\29",
+        skel.breakpoint("mobile").active
+      );
+    });
+
+    // Scrolly links.
+    $(".scrolly").scrolly();
+
+    // Nav.
+    var $nav_a = $("#nav a");
+
+    // Scrolly-fy links.
+    $nav_a.scrolly().on("click", function(e) {
+      var t = $(this),
+        href = t.attr("href");
+
+      if (href[0] != "#") return;
+
+      e.preventDefault();
+
+      // Clear active and lock scrollzer until scrolling has stopped
+      $nav_a.removeClass("active").addClass("scrollzer-locked");
+
+      // Set this link to active
+      // t.addClass('active');
+    });
+
+    // Initialize scrollzer.
+    var ids = [];
+
+    $nav_a.each(function() {
+      var href = $(this).attr("href");
+
+      if (href[0] != "#") return;
+
+      ids.push(href.substring(1));
+    });
+
+    $.scrollzer(ids, { pad: 200, lastHack: true });
+
+    // Header (narrower + mobile).
+
+    // Toggle.
+    $(
+      '<div id="headerToggle">' +
+        '<a href="#header" class="toggle"></a>' +
+        "</div>"
+    ).appendTo($body);
+
+    // Header.
+    $("#header").panel({
+      delay: 500,
+      hideOnClick: true,
+      hideOnSwipe: true,
+      resetScroll: true,
+      resetForms: true,
+      side: "left",
+      target: $body,
+      visibleClass: "header-visible"
+    });
+
+    // Fix: Remove transitions on WP<10 (poor/buggy performance).
+    if (skel.vars.os == "wp" && skel.vars.osVersion < 10)
+      $("#headerToggle, #header, #main").css("transition", "none");
+  });
+
+  // $(document).ready(function() {
+  /* show lightbox when clicking a thumbnail */
+  $("a.thumb").click(function(event) {
+    event.preventDefault();
+    var content = $(".modal-body");
+    content.empty();
+    var title = $(this).attr("title");
+    $(".modal-title").html(title);
+
+    let imageSrc = $(this)
+      .children("img")
+      .attr("src");
+
+    // Frank, behindTheCurtain2, image
+    if (imageSrc === "images/matt_images/Illustration/frank.gif") {
+      let frankImg = $(
+        '<img src="images/matt_images/Illustration/greenManNew.jpg" data-toggle="modal" data-target=".modal-profile-lg" alt="" />'
+      );
+      content.append(frankImg);
+    } else if (imageSrc === "images/matt_images/Illustration/blackHole.gif") {
+      let behindTheCurtain2 = $(
+        '<img src="images/matt_images/Illustration/behindTheCurtain2.jpg" data-toggle="modal" data-target=".modal-profile-lg" alt="" />'
+      );
+      content.append(behindTheCurtain2);
+	} else if (imageSrc === "images/matt_images/Illustration/eclipse.gif") {
+		let eclipse = $(
+		  '<img src="images/matt_images/Illustration/eclipse.jpg" data-toggle="modal" data-target=".modal-profile-lg" alt="" />'
+		);
+		content.append(eclipse);
+	} else if (imageSrc === "images/matt_images/Illustration/inkyCap.gif") {
+		let inkyCap = $(
+		  '<img src="images/matt_images/Illustration/inkyCap2.jpg" data-toggle="modal" data-target=".modal-profile-lg" alt="" />'
+		);
+		content.append(inkyCap);
+	} else if (imageSrc === "images/matt_images/Illustration/reGrowth.gif") {
+		let reGrowth = $(
+		  '<img src="images/matt_images/Illustration/reGrowth.jpg" data-toggle="modal" data-target=".modal-profile-lg" alt="" />'
+		);
+		content.append(reGrowth);
+    } else if (imageSrc === "images/matt_images/Illustration/Sirius_MBK.gif") {
+		let siriusMBK = $(
+		  '<img src="images/matt_images/Illustration/Sirius_MBK.jpg" data-toggle="modal" data-target=".modal-profile-lg" alt="" />'
+		);
+		content.append(siriusMBK);
+	} else if (imageSrc === "images/matt_images/Illustration/starsInHerEyes.gif") {
+		let starsInHerEyes = $(
+		  '<img src="images/matt_images/Illustration/starsInHerEyes.png" data-toggle="modal" data-target=".modal-profile-lg" alt="" />'
+		);
+		content.append(starsInHerEyes);
+  
+   }  else {
+      content.html($(this).html());
+    }
+
+    $(".modal-profile").modal({ show: true });
+  });
+
+  // });
 })(jQuery);
