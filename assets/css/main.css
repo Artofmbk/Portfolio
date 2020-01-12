@@ -135,6 +135,21 @@
 		margin-left: 12.5%;
 	}
 
+	.gradscience {
+		width: 85%;
+		margin-left: 7.5%;
+	}
+
+	.gradscience2 {
+		width: 75%;
+		margin-left: 12.5%;
+	}
+
+	.mars {
+		width: 85%;
+		margin-left: 7.5%;
+	}
+
 
 	@media screen and (min-width: 961px) and (max-width: 1880px) {
 
