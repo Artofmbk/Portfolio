@@ -120,6 +120,20 @@
 		width: 100%;
 	}
 
+	.quantik {
+		width: 80%;
+		margin-left: 10%;
+	}
+
+	.quantik2 {
+		width: 90%;
+		margin-left: 5%;
+	}
+
+	.quantik3 {
+		width: 75%;
+		margin-left: 12.5%;
+	}
 
 
 	@media screen and (min-width: 961px) and (max-width: 1880px) {
