@@ -145,10 +145,10 @@
 		content.append(siriusMBK);
 	} else if (imageSrc === "images/matt_images/Illustration/starsInHerEyes.gif") {
 		let starsInHerEyes = $(
-		  '<img src="images/matt_images/Illustration/starsInHerEyes.png" data-toggle="modal" data-target=".modal-profile-lg" alt="" />'
+		  '<img src="images/matt_images/Illustration/starsInHerEyes.jpg" data-toggle="modal" data-target=".modal-profile-lg" alt="" />'
 		);
 		content.append(starsInHerEyes);
-  
+
    }  else {
       content.html($(this).html());
     }
